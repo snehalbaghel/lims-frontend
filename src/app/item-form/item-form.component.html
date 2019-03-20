@@ -1,0 +1,114 @@
+<mat-card>
+  <mat-card-title>Add Item</mat-card-title>
+  <mat-card-content>
+    <form>
+      <div fxLayout="row" fxLayoutAlign="space-evenly" fxLayoutGap="10px">
+        <mat-form-field fxFlex="1 1 75%" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly" fxLayoutGap="10px">
+        <mat-form-field fxFlex="1 1 25%"appearance="fill">
+          <mat-label>Brand</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+          <mat-label>Bottle Number</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+          <mat-label>Cat Number</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <mat-form-field fxFlex="1 1 10%" appearance="fill">
+            <mat-label>Purity</mat-label>
+            <input matInput>
+            <span matSuffix>%</span>
+          </mat-form-field>        
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly" fxLayoutGap="10px">
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+          <mat-label>Nature</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let nature of chemicalNatures" [value]="nature">{{nature}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+          <mat-label>Type</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let type of chemicalTypes" [value]="type">{{type}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+            <mat-label>Molecular Weight</mat-label>
+            <input matInput>
+            <span matSuffix>g/mol</span>
+          </mat-form-field>
+          <mat-form-field fxFlex="1 1 25%" appearance="fill">
+              <mat-label>Molecular Formula</mat-label>
+              <input matInput>
+              <mat-hint>Paste formula for correct formatting</mat-hint>
+            </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly" fxLayoutGap="10px">
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+          <mat-label>Risk Phrases</mat-label>
+          <input matInput>
+          <span matPrefix>R-</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+          <mat-label>Safety Phrases</mat-label>
+          <input matInput>
+          <span matPrefix>S-</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="1 1 15%" appearance="fill">
+            <span matPrefix>P-</span>
+            <mat-label>P Statements</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+          <mat-form-field fxFlex="1 1 15%" appearance="fill">
+              <mat-label>H Statements</mat-label>
+              <span matPrefix>H-</span>
+              <input matInput>
+            </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly" fxLayoutGap="10px">
+        <mat-form-field appearance="fill">
+            <mat-label>Storage Place</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let place of storagePlaces" [value]="place">{{place}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field  appearance="fill">
+          <mat-label>Storage Temperature</mat-label>
+          <input matInput>
+          <mat-hint>Min</mat-hint>
+          <span matSuffix>°C</span>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Storage Temperature</mat-label>
+          <input matInput>
+          <mat-hint>Max</mat-hint>
+          <span matSuffix>°C</span>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly" fxLayoutGap="10px">
+        <mat-form-field  fxFlex="1 1 50%" appearance="fill">
+          <mat-label>Other Instructions</mat-label>
+          <textarea matInput ></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <button  mat-raised-button color="accent" (click)="submit()">Submit</button>
+          <button  mat-raised-button>Reset</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>

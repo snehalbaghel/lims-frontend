@@ -1,0 +1,24 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <!--
+          <a class="toolbar-item">
+            <img src="assets/img/caps_blue.png" height="70" width="140">
+          </a>-->
+        
+    <span class="app-name toolbar-item ">LIMS</span> 
+
+    <span class="spacer"></span>
+    
+    <button class="toolbar-item" mat-stroked-button [routerLink]="['home']" routerLinkActive="active">Home</button>
+    <!-- <button class="toolbar-item" mat-stroked-button [routerLink]="['request-form']" >Request</button>  -->
+    <button class="toolbar-item" mat-stroked-button [routerLink]="['item-form']" routerLinkActive="active">Add Item</button>
+    <button class="toolbar-item" mat-stroked-button [routerLink]="['support']" routerLinkActive="active">Support</button>
+    
+    <span class="spacer"></span>
+    
+    <button class="toolbar-item" mat-stroked-button [routerLink]="['login']" routerLinkActive="active">Login</button>
+
+    <!-- <i class="material-icons toolbar-item">account_circle</i> -->
+
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,26 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="login">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle class="subtitle">Please enter your credentials</mat-card-subtitle>
+    <mat-card-content fxLayout="column" >
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Username</mat-label>
+            <input formControlName="username" type="text" matInput>
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Username</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-field">
+              <mat-label>Password</mat-label>
+              <input formControlName="password" type="password" matInput>
+              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+              <!-- <mat-hint>Username</mat-hint> -->
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutGap="10px">
+              <button fxFlex="50" mat-raised-button color="accent" (click)="login()">Login</button>
+              <button fxFlex="50" mat-raised-button>Reset</button>
+          </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
