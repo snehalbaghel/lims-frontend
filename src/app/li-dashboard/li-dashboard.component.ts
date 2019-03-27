@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { UserModel } from '../models/user';
+import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-li-dashboard',
@@ -29,5 +32,9 @@ export class LiDashboardComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  currentUser$: Observable<UserModel>;
+
+  constructor(private breakpointObserver: BreakpointObserver, private userService: UserService) {
+    this.currentUser$ = userService.user();
+  }
 }

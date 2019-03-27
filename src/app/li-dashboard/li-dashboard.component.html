@@ -1,4 +1,4 @@
-<div class="grid-container">
+<!-- <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
@@ -21,4 +21,13 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+</div> -->
+<div *ngIf="currentUser$ | async as user; else loggedOut">
+<h1>{{ user.name  }}</h1>
 </div>
+
+<ng-template #loggedOut>
+  <h1>
+    Please Login in.
+  </h1>
+</ng-template>

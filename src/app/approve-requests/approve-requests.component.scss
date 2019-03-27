@@ -1,0 +1,39 @@
+$badge-text-color: #ffffff;
+$badge-warning-bg: #f1c40f;
+$badge-success-bg: #2ecc71;
+$badge-default-bg: #2c3e50;
+
+
+.badge {
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: $badge-default-bg;
+  color: $badge-text-color;
+  
+  border-radius: 3rem; // As longe as this is bigger than the fontsize
+  text-align: center;
+
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: .05rem .8rem .1rem;
+  line-height: inherit;
+
+  font-size: .7rem;
+  padding: .05rem .4rem .15rem;
+}
+
+
+.badge--pending {
+  background-color: $badge-warning-bg;
+  content: Pending
+}
+
+.badge--approved {
+  background-color: $badge-success-bg;
+  content: Approved
+}
+
+.full-width-table {
+  width: 100%;
+}
+

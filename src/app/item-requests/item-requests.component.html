@@ -1,0 +1,53 @@
+<div class="mat-elevation-z8">
+  <table mat-table style="min-width: 850px " class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <ng-container matColumnDef="item">
+      <th mat-header-cell *matHeaderCellDef>Item</th>
+      <td mat-cell *matCellDef="let row">
+        {{row.item_id.name}}
+        <small>{{row.item_id.mol_formula}}</small>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Intender</th>
+      <td mat-cell *matCellDef="let row">{{row.intender_id.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="subject">mat-sort-header
+      <th mat-header-cell *matHeaderCellDef>Subject</th>
+      <td mat-cell *matCellDef="let row">{{row.subject_code}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="use">
+      <th mat-header-cell *matHeaderCellDef>Use</th>
+      <td mat-cell *matCellDef="let row">{{row.intended_use}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let row">{{row.quantity.value}} {{row.quantity.unit}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let row">{{row.date | date:'short'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="approved">
+      <th mat-header-cell *matHeaderCellDef>Approved</th>
+      <td mat-cell *matCellDef="let row">
+        <span *ngIf="row.approved" class="badge badge--approved">Approved</span>
+        <span *ngIf="!row.approved" class="badge badge--pending">Pending</span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[50, 100, 250]">
+  </mat-paginator>
+</div>

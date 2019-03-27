@@ -1,9 +1,9 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <!--
-          <a class="toolbar-item">
-            <img src="assets/img/caps_blue.png" height="70" width="140">
-          </a>-->
+      <a class="toolbar-item">
+        <img src="assets/img/caps_blue.png" height="70" width="140">
+    </a>-->
         
     <span class="app-name toolbar-item ">LIMS</span> 
 
@@ -12,11 +12,20 @@
     <button class="toolbar-item" mat-stroked-button [routerLink]="['home']" routerLinkActive="active">Home</button>
     <!-- <button class="toolbar-item" mat-stroked-button [routerLink]="['request-form']" >Request</button>  -->
     <button class="toolbar-item" mat-stroked-button [routerLink]="['item-form']" routerLinkActive="active">Add Item</button>
-    <button class="toolbar-item" mat-stroked-button [routerLink]="['support']" routerLinkActive="active">Support</button>
+    <!-- <button class="toolbar-item" mat-stroked-button [routerLink]="['support']" routerLinkActive="active">Support</button> -->
+    <button class="toolbar-item" mat-stroked-button [routerLink]="['request-form']" routerLinkActive="active">Request Item</button>
+    <button class="toolbar-item" mat-stroked-button [routerLink]="['requests']" routerLinkActive="active">Requests</button>
+    <button class="toolbar-item" mat-stroked-button [routerLink]="['approve']" routerLinkActive="active">Approve</button>
     
     <span class="spacer"></span>
+      
+    <div *ngIf="currentUser$ | async as user; else loggedOut">
+        <button  class="toolbar-item" mat-stroked-button (click)="logout()">Logout</button>
+    </div>
     
-    <button class="toolbar-item" mat-stroked-button [routerLink]="['login']" routerLinkActive="active">Login</button>
+    <ng-template #loggedOut>
+        <button  class="toolbar-item" mat-stroked-button [routerLink]="['login']" routerLinkActive="active">Login</button>
+    </ng-template>
 
     <!-- <i class="material-icons toolbar-item">account_circle</i> -->
 

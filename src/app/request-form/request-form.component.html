@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-title>Request Item</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="requestForm">
+      <div fxLayout fxLayoutGap="15px">  
+      <mat-form-field>
+            <input formControlName="itemCtrl" placeholder="Item" aria-label="Item" [matAutocomplete]="auto" matInput>
+      </mat-form-field> 
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="stupidFunction">
+          <mat-option *ngFor="let item of items$ | async" [value]="item">
+              <span>{{item.name}}</span> |
+              <small>{{item.mol_formula}}</small>
+            </mat-option>
+      </mat-autocomplete>
+      <mat-form-field>
+          <mat-label>Quantity</mat-label>
+          <input formControlName="quantity_num" matInput>
+        </mat-form-field>
+      </div>
+      <div fxLayout fxLayoutGap="15px">
+        <mat-form-field>
+          <mat-label>Unit</mat-label>
+          <input formControlName="quantity_unit" matInput>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Indented Use</mat-label>
+          <input formControlName="intended_use" type="text" matInput>
+        </mat-form-field>
+      </div>
+      <div fxLayout fxLayoutGap="15px">
+        <mat-form-field>
+          <mat-label>Subject Code</mat-label>
+          <input formControlName="subject_code" matInput>
+        </mat-form-field>
+      </div>
+      <div fxLayout fxLayoutAlign="center center">
+        <button mat-raised-button color="accent" [disabled]="requestForm.invalid" (click)="submit()">Submit</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
